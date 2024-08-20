@@ -36,10 +36,8 @@ $(document).ready(function() {
         const start = (page - 1) * itemsPerPage;
         const end = start + itemsPerPage;
 
-        // Remover animações anteriores
         $accordions.removeClass('slide-in-right slide-in-left').hide();
 
-        // Mostrar os novos itens com a animação correta
         const $newItems = $accordions.slice(start, end).show();
         if (direction === 'next') {
             $newItems.addClass('slide-in-right');
@@ -55,7 +53,7 @@ $(document).ready(function() {
         itemsPerPage = parseInt($(this).val());
         totalPages = Math.ceil($accordions.length / itemsPerPage);
         currentPage = 1;
-        showPage(currentPage, 'next'); // Inicia com animação da direita
+        showPage(currentPage, 'next');
     });
 
     $('#prev-page').on('click', function() {
@@ -72,16 +70,14 @@ $(document).ready(function() {
         }
     });
 
-    showPage(currentPage, 'next'); // Inicia com animação da direita
+    showPage(currentPage, 'next');
 });
 
-
-// Script para detectar toque e swipe
+// SCRIPT TO DETECT SWIPES AND TOUCHES ON SCREEN
 $(document).ready(function() {
     let startX, startY;
-    const swipeThreshold = 50; // Limiar para considerar um swipe
+    const swipeThreshold = 50;
 
-    // Função para registrar a direção do swipe
     function logSwipeDirection(deltaX, deltaY) {
         if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
             if (deltaX < 0) {

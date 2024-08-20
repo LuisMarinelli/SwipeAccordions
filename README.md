@@ -1,5 +1,4 @@
 Swipe Accordions
-
 Overview
 Swipe Accordions is a simple and dynamic accordion carousel system, designed to navigate content smoothly. It combines the simplicity of accordions with the flexibility of a carousel, enabling you to swipe through accordion items effortlessly.
 
@@ -15,7 +14,6 @@ License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 Accordions de Swipe
-
 Visão Geral
 Swipe Accordions é um sistema de carrossel de acordeões simples e dinâmico, projetado para navegar pelo conteúdo de forma suave. Ele combina a simplicidade dos acordeões com a flexibilidade de um carrossel, permitindo que você deslize facilmente entre os itens do acordeão.
 
