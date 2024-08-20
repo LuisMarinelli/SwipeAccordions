@@ -109,21 +109,6 @@ body.force-under-space{
     justify-content: center;
     padding: 0.5rem;
 }
-.accordion-button-addParam {
-    margin-left: 1rem;
-    margin-right: 1.5rem;
-    font-size: 1.8rem;
-    justify-content: center;
-    padding: 1rem;
-    margin-top: 1.0rem;
-    margin-bottom: 1.0rem;
-    width: 7.5rem;
-    border-radius: 15px;
-    background-color: #0057B7;
-}
-.small-text {
-    font-size: 0.875rem;
-}
 .accordion-item {
     display: block;
 }  

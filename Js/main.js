@@ -8,23 +8,6 @@ function goBack() {
     window.history.back();
 }
 
-// SHOW HEADER MENU WHEN SCROLL
-document.addEventListener('DOMContentLoaded', function () {
-    var header = document.getElementById('header');
-    var stickyHeader = header.offsetTop;
-    var stickyFooter = document.body.offsetHeight - window.innerHeight;
-    function checkScroll() {
-        if (window.pageYOffset > stickyHeader) {
-            header.classList.add('fixed');
-        } else {
-            header.classList.remove('fixed');
-        }
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    checkScroll();
-});
-
 // SEARCH
 document.getElementById('searchBox').addEventListener('input', function () {
     const filter = this.value.toLowerCase();
@@ -32,10 +15,9 @@ document.getElementById('searchBox').addEventListener('input', function () {
 
     items.forEach(item => {
         const number = item.querySelector('.col-custom-number .data-value').textContent.toLowerCase();
-        const carac = item.querySelector('.col-custom-carac .data-value').textContent.toLowerCase();
         const tecnic = item.querySelector('.col-custom-tecnic .data-value').textContent.toLowerCase();
 
-        if (number.includes(filter) || carac.includes(filter) || tecnic.includes(filter)) {
+        if (number.includes(filter) || tecnic.includes(filter)) {
             item.classList.remove('hidden');
         } else {
             item.classList.add('hidden');
