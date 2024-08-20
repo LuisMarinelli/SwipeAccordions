@@ -3,109 +3,789 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
+    <title>Swipe Accordions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.cs" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- PERSONAL STYLES -->
+    <link rel="stylesheet" href="Css/style.css">
 </head>
 
-<body>
-    <div class="container mt-4 mb-2">
-        <div class="row">
-            <div class="col-sm-2 d-flex align-items-center justify-content-center">
-                <button type="button" class="btn btn-secondary prev-page carousel-button w-100 h-100">&lt;</button>
-            </div>
-            
+<body class="force-under-space">
+    <section class="mt-4 mb-4">
 
-            <div class="col-sm-8">
-                <div class="accordion-carousel">
-                    <!-- Accordion Pages -->
-                    <div class="accordion-page active">
-                        <div class="accordion" id="accordionPage1">
-                            <!-- Accordion 1 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Accordion Item #1
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionPage1">
-                                    <div class="accordion-body">
-                                        Content for accordion item #1.
+        <!-- Title with Dropdown and Search Input -->
+        <div class="title-container d-flex align-items-center">
+            <h1 class="header-subtitle me-3">ACCORDIONS COM SWIPE EM RESPONSIVE:</h1>
+            <!-- Search Input -->
+            <div class="search-container">
+                <input type="text" id="searchBox" class="form-control shadow-none search-input"
+                    placeholder="Pesquisar..." title="Ex.: PASTA DIGITAL">
+                <i class="bi bi-search search-icon"></i>
+            </div>
+        </div>
+        <hr>
+
+        <!-- PAGE SETUP -->
+        <div class="items-per-page mt-3 d-flex align-items-center">
+            <label for="itemsPerPageSelect" class="col-sm-3 text-muted me-2">Itens por página:</label>
+            <select id="itemsPerPageSelect" class="form-select form-select-sm" aria-label="Itens por páginas">
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <hr>
+
+        <!-- Caroussel Accordions -->
+        <div class="row" id="accordion-container">
+            <div class="col-custom-btns d-flex align-items-center justify-content-center">
+                <button id="prev-page" type="button"
+                    class="btn btn-secondary prev-page carousel-button w-100 h-100">&lt;</button>
+            </div>
+            <!-- Accordion Cards -->
+            <div class="col-sm-8 col-custom-accordions">
+                <div class="accordion">
+                    <!-- 1 -->
+                    <div class="accordion-item shadow mb-4" data-title="Item 1">
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingOne"
+                            title="Ver últimos lançamentos">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <div class="container-fluid p-0">
+                                    <div class="row align-items-center">
+                                        <div class="d-flex text-start col-custom">
+                                            <div class="col-custom-number">
+                                                <span class="data-label">Nº:</span>
+                                                <span class="data-value">58 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">&#248;10.80 - &oslash;11.20 (2x)</span>
+                                            </div>
+                                            <div class="col-custom-tecnic">
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>EXEMPLO DE ACCORDION</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <a href="#" class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="button"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-3 d-flex flex-column align-items-center justify-content-center"
+                                        style="border-right: 1px solid #dee2e6;">
+                                        <div class="col-12">
+                                            <div class="current-item">
+                                                <div class="result current-result text-danger">
+                                                    <span class="index">1</span>NC
+                                                </div>
+                                                <div class="date-time text-muted">
+                                                    12/08/2024 14:32
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">2</span>C
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">3</span>NC
+                                                    </div>
+                                                    <div class="date-time">11/08/2024 15:30</div>
+                                                </div>
+                                            </div>
+                                            <!-- SECOND ROW -->
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">4</span>C
+                                                    </div>
+                                                    <div class="date-time">10/08/2024 09:45</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">5</span>C
+                                                    </div>
+                                                    <div class="date-time">09/08/2024 12:20</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">6</span>NC
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">6</span>NC
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                            <!-- Accordion 2 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Accordion Item #2
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionPage1">
-                                    <div class="accordion-body">
-                                        Content for accordion item #2.
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="accordion-item shadow mb-4" data-title="Item 2">
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingTwo"
+                            title="Ver últimos lançamentos">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <div class="container-fluid p-0">
+                                    <div class="row align-items-center">
+                                        <div class="d-flex text-start col-custom">
+                                            <div class="col-custom-number">
+                                                <span class="data-label">Nº:</span>
+                                                <span class="data-value">60 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">1.90-2.10
+                                                    (2x)
+                                                </span>
+                                            </div>
+                                            <div class="col-custom-tecnic">
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>EXEMPLO 2 - ARQUIVO DIGITAL</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Botão de ADD -->
+                            <a href="#" class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="button"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <!-- Coluna "AGORA" -->
+                                    <div class="col-3 d-flex flex-column align-items-center justify-content-center"
+                                        style="border-right: 1px solid #dee2e6;">
+                                        <div class="col-12">
+                                            <div class="current-item">
+                                                <div class="result current-result text-success">
+                                                    <span class="index">1</span>1.2
+                                                </div>
+                                                <div class="date-time text-muted">
+                                                    12/08/2024 14:32
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Coluna "HISTÓRICO" -->
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">2</span>2.11
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">3</span>2.12
+                                                    </div>
+                                                    <div class="date-time">11/08/2024 15:31</div>
+                                                </div>
+                                            </div>
+                                            <!-- SECOND ROW -->
+                                            <div class="col-4">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">4</span>2.0
+                                                    </div>
+                                                    <div class="date-time">10/08/2024 09:45</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">5</span>2.09
+                                                    </div>
+                                                    <div class="date-time">09/08/2024 12:20</div>
+                                                </div>
+                                            </div>                                           
+                                            <div class="col-4">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">6</span>1.91
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Accordion 3 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Accordion Item #3
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionPage1">
-                                    <div class="accordion-body">
-                                        Content for accordion item #3.
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="accordion-item shadow mb-4" data-title="Item 3">
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingThree"
+                            title="Ver últimos lançamentos">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <div class="container-fluid p-0">
+                                    <div class="row align-items-center">
+                                        <div class="d-flex text-start col-custom">
+                                            <div class="col-custom-number">
+                                                <span class="data-label">Nº:</span>
+                                                <span class="data-value">70 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">Lorem Ipsum</span>
+                                            </div>
+                                            <div class="col-custom-tecnic">
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>EXEMPLO 3 - PASTA DIGITAL</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Botão de ADD -->
+                            <a href="#" class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="button"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <!-- Coluna "AGORA" -->
+                                    <div class="col-3 d-flex flex-column align-items-center justify-content-center"
+                                        style="border-right: 1px solid #dee2e6;">
+                                        <div class="col-12">
+                                            <div class="current-item">
+                                                <div class="result current-result text-success">
+                                                    <span class="index">1</span>C
+                                                </div>
+                                                <div class="date-time text-muted">
+                                                    12/08/2024 14:32
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Coluna "HISTÓRICO" -->
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">2</span>C
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">3</span>NC
+                                                    </div>
+                                                    <div class="date-time">11/08/2024 15:30</div>
+                                                </div>
+                                            </div>
+                                            <!-- SECOND ROW -->
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">4</span>C
+                                                    </div>
+                                                    <div class="date-time">10/08/2024 09:45</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">5</span>C
+                                                    </div>
+                                                    <div class="date-time">09/08/2024 12:20</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">6</span>NC
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">6</span>NC
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                            <!-- Accordion 4 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        Accordion Item #4
-                                    </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionPage1">
-                                    <div class="accordion-body">
-                                        Content for accordion item #4.
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="accordion-item shadow mb-4" data-title="Item 4">
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingFour"
+                            title="Ver últimos lançamentos" title="Ver últimos lançamentos">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <div class="container-fluid p-0">
+                                    <div class="row align-items-center">
+                                        <div class="d-flex text-start col-custom">
+                                            <div class="col-custom-number">
+                                                <span class="data-label">Nº:</span>
+                                                <span class="data-value">71 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">1.15 - 1.25
+                                                    (2x)</span>
+                                            </div>
+                                            <div class="col-custom-tecnic">
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>EXEMPLO 4 - ACCORDION SWIPE</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Botão de ADD -->
+                            <a href="#" class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="button"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <!-- Coluna "AGORA" -->
+                                    <div class="col-3 d-flex flex-column align-items-center justify-content-center"
+                                        style="border-right: 1px solid #dee2e6;">
+                                        <div class="col-12">
+                                            <div class="current-item">
+                                                <div class="result current-result text-danger">
+                                                    <span class="index text">1</span>1.27
+                                                </div>
+                                                <div class="date-time text-muted">
+                                                    12/08/2024 14:32
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Coluna "HISTÓRICO" -->
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">2</span>1.3
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Accordion 5 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                        Accordion Item #5
-                                    </button>
-                                </h2>
-                                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionPage1">
-                                    <div class="accordion-body">
-                                        Content for accordion item #5.
+                        </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="accordion-item shadow mb-4" data-title="Item 5">
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingFive"
+                            title="Ver últimos lançamentos">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                <div class="container-fluid p-0">
+                                    <div class="row align-items-center">
+                                        <div class="d-flex text-start col-custom">
+                                            <div class="col-custom-number">
+                                                <span class="data-label">Nº:</span>
+                                                <span class="data-value">72 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">5.20 - 5.60
+                                                    (4x)</span>
+                                            </div>
+                                            <div class="col-custom-tecnic">
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>EXEMPLO 5 - OUTRA COISA</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Botão de ADD -->
+                            <a href="#" class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="button"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <!-- Coluna "AGORA" -->
+                                    <div class="col-3 d-flex flex-column align-items-center justify-content-center"
+                                        style="border-right: 1px solid #dee2e6;">
+                                        <div class="col-12">
+                                            <div class="current-item">
+                                                <div class="result current-result text-success">
+                                                    <span class="index">1</span>C
+                                                </div>
+                                                <div class="date-time text-muted">
+                                                    12/08/2024 14:32
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Coluna "HISTÓRICO" -->
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">2</span>C
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">3</span>NC
+                                                    </div>
+                                                    <div class="date-time">11/08/2024 15:30</div>
+                                                </div>
+                                            </div>
+                                            <!-- SECOND ROW -->
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">4</span>C
+                                                    </div>
+                                                    <div class="date-time">10/08/2024 09:45</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">5</span>C
+                                                    </div>
+                                                    <div class="date-time">09/08/2024 12:20</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">6</span>NC
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">6</span>NC
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                            <!-- Accordion 6 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                        Accordion Item #6
-                                    </button>
-                                </h2>
-                                <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionPage1">
-                                    <div class="accordion-body">
-                                        Content for accordion item #6.
+                        </div>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="accordion-item shadow mb-4" data-title="Item 6">
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingSix"
+                            title="Ver últimos lançamentos">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                <div class="container-fluid p-0">
+                                    <div class="row align-items-center">
+                                        <div class="d-flex text-start col-custom">
+                                            <div class="col-custom-number">
+                                                <span class="data-label">Nº:</span>
+                                                <span class="data-value">75 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">&#248;2.48 -
+                                                    &oslash;2.60
+                                                </span>
+                                            </div>
+                                            <div class="col-custom-tecnic">
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>EXEMPLO 6 - QUALQUER COISA</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Botão de ADD -->
+                            <a href="#" class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="button"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <!-- Coluna "AGORA" -->
+                                    <div class="col-3 d-flex flex-column align-items-center justify-content-center"
+                                        style="border-right: 1px solid #dee2e6;">
+                                        <div class="col-12">
+                                            <div class="current-item">
+                                                <div class="result current-result text-success">
+                                                    <span class="index">1</span>C
+                                                </div>
+                                                <div class="date-time text-muted">
+                                                    12/08/2024 14:32
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Coluna "HISTÓRICO" -->
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">2</span>C
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">3</span>NC
+                                                    </div>
+                                                    <div class="date-time">11/08/2024 15:30</div>
+                                                </div>
+                                            </div>
+                                            <!-- SECOND ROW -->
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">4</span>C
+                                                    </div>
+                                                    <div class="date-time">10/08/2024 09:45</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">5</span>C
+                                                    </div>
+                                                    <div class="date-time">09/08/2024 12:20</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">6</span>NC
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">6</span>NC
+                                                    </div>
+                                                    <div class="date-time">08/08/2024 08:15</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="accordion-item shadow mb-4" data-title="Item 7">
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingSeven"
+                            title="Ver últimos lançamentos" title="Ver últimos lançamentos">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                <div class="container-fluid p-0">
+                                    <div class="row align-items-center">
+                                        <div class="d-flex text-start col-custom">
+                                            <div class="col-custom-number">
+                                                <span class="data-label">Nº:</span>
+                                                <span class="data-value">76 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">5.80 - 6.20
+                                                    (2x)</span>
+                                            </div>
+                                            <div class="col-custom-tecnic">
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>EXEMPLO - SÉTIMO ACCORDION </b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Botão de ADD -->
+                            <a href="#" class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="button"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingFour">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <!-- Coluna "AGORA" -->
+                                    <div class="col-3 d-flex flex-column align-items-center justify-content-center"
+                                        style="border-right: 1px solid #dee2e6;">
+                                        <div class="col-12">
+                                            <div class="current-item">
+                                                <div class="result current-result text-danger">
+                                                    <span class="index text">1</span>1.27
+                                                </div>
+                                                <div class="date-time text-muted">
+                                                    12/08/2024 14:32
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Coluna "HISTÓRICO" -->
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">2</span>1.3
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8 -->
+                    <div class="accordion-item shadow mb-4" data-title="Item 8">
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingEight"
+                            title="Ver últimos lançamentos">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                <div class="container-fluid p-0">
+                                    <div class="row align-items-center">
+                                        <div class="d-flex text-start col-custom">
+                                            <div class="col-custom-number">
+                                                <span class="data-label">Nº:</span>
+                                                <span class="data-value">77 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">
+                                                    23.80 - 24.20
+                                                </span>
+                                            </div>
+                                            <div class="col-custom-tecnic">
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>EXEMPLO 8 - OITAVO ACCORDION</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Botão de ADD -->
+                            <a href="#" class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="button"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </h2>
+                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <!-- Coluna "AGORA" -->
+                                    <div class="col-3 d-flex flex-column align-items-center justify-content-center"
+                                        style="border-right: 1px solid #dee2e6;">
+                                        <div class="col-12">
+                                            <div class="current-item">
+                                                <div class="result current-result text-success">
+                                                    <span class="index text">1</span>24.27
+                                                </div>
+                                                <div class="date-time text-muted">
+                                                    12/08/2024 14:32
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Coluna "HISTÓRICO" -->
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-success">
+                                                        <span class="index">2</span>23.93
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 mb-2">
+                                                <div class="history-item">
+                                                    <div class="result text-danger">
+                                                        <span class="index">3</span>21.13
+                                                    </div>
+                                                    <div class="date-time">12/08/2024 10:00</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -113,27 +793,23 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="col-sm-2 d-flex align-items-center justify-content-center">
-                <button type="button" class="btn btn-secondary next-page carousel-button w-100 h-100">&gt;</button>
+            <div class="col-custom-btns d-flex align-items-center justify-content-center">
+                <button id="next-page" type="button"
+                    class="btn btn-secondary next-page carousel-button w-100 h-100">&gt;</button>
             </div>
         </div>
-        <br>
-        
-        <div class="items-per-page mt-3">
-            <label for="itemsPerPageSelect">Items per page:</label>
-            <select id="itemsPerPageSelect">
-                <option value="2">2</option>
-                <option value="3" selected>3</option>
-                <option value="4">4</option>
-                <option value="6">6</option>
-            </select>
-        </div>
-    </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
+    <footer class="footer justify-content-between">
+        Development by ZF Group LMR - PDPQ Team. All rights reserved - <span id="currentYear"></span>.
+    </footer>
+
+    <!-- SCRIPTs -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="Js/main.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,315 @@
+
+html, body {
+    height: auto;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #FFFF, #CEEBFC);
+    color: white;
+    overflow-y: auto; /* FORCE SCROLL ON PAGE */
+    box-sizing: border-box;
+}
+
+section{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+body.force-under-space{
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hidden{
+    display: none;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #f9f9f9;
+    background-color: #F0F2F4;
+    color: #475968;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.header-container {
+    background-color: #F0F2F4;
+    padding: 15px;
+    border-radius: 10px;
+    border-top: 1px solid #ACBBC5;
+    border-bottom: 1px solid #F0F2F4;
+    color: #475968;
+}
+/* PERSONAL SEARCH BUTTON */
+.search-container {
+    position: relative;
+    width: 22.5rem;
+}
+
+.search-input {
+    border: none;
+    border-bottom: 2px solid #000;
+    /* Linha inferior */
+    background: transparent;
+    padding-right: 30px;
+    /* Espaço para a lupa */
+    border-radius: 3px;
+}
+
+.search-input:focus {
+    box-shadow: none;
+    border-bottom-color: #0057B7;
+    /* Cor da linha quando em foco */
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: #000;
+    pointer-events: none;
+    /* Para que a lupa não interfira no clique */
+}
+
+/* BUTTONS PAGE */
+#next-page{
+    z-index: 1000;
+}
+#prev-page{
+    z-index: 1000;
+}
+
+/* ACCORDIONS STYLES */
+.col-custom-btns {
+    width: 3.5rem; 
+}
+.col-custom-accordions {
+    flex-grow: 1;
+    padding-right: -100px;
+}
+.accordion{
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;   
+}
+.accordion-body {
+    padding: 20px;
+}
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: #0057B7;
+}
+.accordion-button {
+    font-size: 1.25rem;
+    justify-content: center;
+    padding: 0.5rem;
+}
+.accordion-button-addParam {
+    margin-left: 1rem;
+    margin-right: 1.5rem;
+    font-size: 1.8rem;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 1.0rem;
+    margin-bottom: 1.0rem;
+    width: 7.5rem;
+    border-radius: 15px;
+    background-color: #0057B7;
+}
+.small-text {
+    font-size: 0.875rem;
+}
+.accordion-item {
+    display: block;
+}  
+.accordion-item.hidden {
+    display: none;
+}
+
+/* ACCORDIONS PAGE */
+#accordion-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+.accordion-page {
+    display: none;
+    width: 100%;
+    transition: transform 0.5s ease;
+}  
+.accordion-page.active {
+    display: block;
+}
+  
+/* CUSTOM COLUNMS SIZE TO SHOW CARDS TITLES*/
+.col-custom {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.2rem;
+}
+.col-custom-number {
+    flex: 0 0 auto;
+    width: 20%; 
+    padding-left: 0.5rem;
+}
+.col-custom-carac {
+    flex: 1 1 auto;
+    width: 30%; 
+}
+.col-custom-tecnic {
+    padding-left: 0.9rem;
+    flex: 1 1 auto;
+    width: 43%; 
+    margin-right: 0.8rem;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.title-container h1 {
+    margin: 0;
+    font-size: 1.75rem;
+}
+.data-label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-right: 2px;
+}
+.data-value {
+    font-size: 0.9rem;
+}
+
+/* CARDBOARDS IN ACCORDIONS CURRENT OR LAST */
+.current-item {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    position: relative;
+    margin-bottom: 10px;
+    height: 12.5rem;
+}
+
+.current-result {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.current-item .date-time {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+/* Estilo para o índice */
+.current-item .result .index {
+    position: absolute;
+    top: 7px;
+    /* Ajusta a posição vertical do índice */
+    left: 7px;
+    /* Ajusta a posição horizontal do índice */
+    font-size: 0.8rem;
+    /* Tamanho do número do índice */
+    color: #6c757d;
+    /* Cor do número do índice */
+    background-color: #ffffff;
+    border-radius: 30%;
+    width: 24px;
+    /* Ajustado para mais visível */
+    height: 24px;
+    /* Ajustado para mais visível */
+    text-align: center;
+    line-height: 24px;
+    /* Ajustado para mais visível */
+    border: 1px solid #dee2e6;
+}
+
+/* CARDBOARDS IN ACCORDIONS HISTORICAL */
+.history-item {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o índice */
+.history-item .result .index {
+    position: absolute;
+    top: -8px;
+    /* Ajusta a posição vertical do índice */
+    left: -8px;
+    /* Ajusta a posição horizontal do índice */
+    font-size: 0.7rem;
+    /* Tamanho do número do índice */
+    color: #6c757d;
+    /* Cor do número do índice */
+    background-color: rgba(255, 255, 255, 0.7) ;
+    border-radius: 40%;
+    width: 18px;
+    /* Ajustado para mais visível */
+    height: 21px;
+    /* Ajustado para mais visível */
+    text-align: center;
+    line-height: 20px;
+    /* Ajustado para mais visível */
+    border: 1px solid #dee2e6;
+}
+
+.history-item .result {
+    font-size: 1.8rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.history-item .date-time {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+/* ANIMATION TO TRANSITIONS */ 
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.slide-in-right {
+    animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slide-in-left 0.5s ease-out forwards;
+}
