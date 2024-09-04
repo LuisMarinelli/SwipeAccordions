@@ -16,13 +16,20 @@
 <body class="force-under-space">
     <section class="mt-4 mb-4">
 
+        <!-- button header "menu" -->
+        <div id="header" class="header d-flex justify-content-between mb-4">
+            <button class="btn btn-primary btn-lg shadow-sm" title="Back page with JS" onclick="goBack()">
+                BACK
+            </button>
+        </div>
+
         <!-- Title with Dropdown and Search Input -->
         <div class="title-container d-flex align-items-center">
-            <h1 class="header-subtitle me-3">ACCORDIONS COM SWIPE EM RESPONSIVE:</h1>
+            <h1 class="header-subtitle me-3">SWIPPE ACCORDIONS AND PAGINATION:</h1>
             <!-- Search Input -->
             <div class="search-container">
                 <input type="text" id="searchBox" class="form-control shadow-none search-input"
-                    placeholder="Pesquisar..." title="Ex.: PASTA DIGITAL">
+                    placeholder="Search..." title="Ex.: Any">
                 <i class="bi bi-search search-icon"></i>
             </div>
         </div>
@@ -30,12 +37,13 @@
 
         <!-- PAGE SETUP -->
         <div class="items-per-page mt-3 d-flex align-items-center">
-            <label for="itemsPerPageSelect" class="col-sm-3 text-muted me-2">Itens por página:</label>
+            <label for="itemsPerPageSelect" class="col-sm-3 text-muted me-2">Item per pag:</label>
             <select id="itemsPerPageSelect" class="form-select form-select-sm" aria-label="Itens por páginas">
                 <option value="2">2</option>
-                <option value="3" selected>3</option>
+                <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="6">6</option>
+                <option value="8" selected>All</option>
             </select>
         </div>
         <hr>
@@ -43,16 +51,20 @@
         <!-- Caroussel Accordions -->
         <div class="row" id="accordion-container">
             <div class="col-custom-btns d-flex align-items-center justify-content-center">
-                <button id="prev-page" type="button"
-                    class="btn btn-secondary prev-page carousel-button w-100 h-100">&lt;</button>
+                <button id="prev-page" type="button" class="btn btn-secondary prev-page carousel-button w-100 h-100 hidden">
+                    <i class="bi bi-arrow-bar-left"></i>
+                </button>
             </div>
             <!-- Accordion Cards -->
             <div class="col-sm-8 col-custom-accordions">
-                <div class="accordion">
+
+                <div id="filtered-items-container" class="accordion" style="display: none"></div>
+                <div id="native-items-container" class="accordion" style="">
+
                     <!-- 1 -->
                     <div class="accordion-item shadow mb-4" data-title="Item 1">
                         <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingOne"
-                            title="Ver conteúdo do Accordion">
+                            title="Ver últimos lançamentos">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 <div class="container-fluid p-0">
@@ -60,22 +72,29 @@
                                         <div class="d-flex text-start col-custom">
                                             <div class="col-custom-number">
                                                 <span class="data-label">Nº:</span>
-                                                <span class="data-value">58 |</span>
+                                                <span class="data-value">001 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">&#248;10.80 - &oslash;11.20 (2x)</span>
                                             </div>
                                             <div class="col-custom-tecnic">
-                                                <span class="data-label">Value:</span>
-                                                <span class="data-value"><b>EXEMPLO DE ACCORDION</b></span>
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>SOMETHING TITLE ACCORDION - Example.1</b></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </button>
+                            <!-- Form Button ADD -->
+                            <button class="btn btn-success btn-lg ms-3 accordion-button-addParam" type="submit"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-plus-circle"></i>
+                            </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
                             <div class="accordion-body">
-                                <div class="row">
-                                    Exemplo do 1º Accordion.
-                                </div>
+                                Somenthing Accordion #1...
                             </div>
                         </div>
                     </div>
@@ -91,24 +110,32 @@
                                         <div class="d-flex text-start col-custom">
                                             <div class="col-custom-number">
                                                 <span class="data-label">Nº:</span>
-                                                <span class="data-value">60 |</span>
+                                                <span class="data-value">002 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">
+                                                    1.90-2.10
+                                                    (2x)
+                                                </span>
                                             </div>
                                             <div class="col-custom-tecnic">
-                                                <span class="data-label">Value:</span>
-                                                <span class="data-value"><b>EXEMPLO 2 - ARQUIVO DIGITAL</b></span>
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>SOMETHING TITLE ACCORDION - Example.2</b></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </button>
+                            <!-- Form Button ADD -->
+                            <button class="btn btn-success btn-lg ms-3 accordion-button-addParam" type="submit"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-2-circle-fill"></i>
+                            </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
                             <div class="accordion-body">
-                                <div class="row">
-                                    <div class="row">
-                                        Exemplo do 2º Accordion.
-                                    </div>
-                                </div>
+                                Somenthing Accordion #2...
                             </div>
                         </div>
                     </div>
@@ -116,7 +143,7 @@
                     <!-- 3 -->
                     <div class="accordion-item shadow mb-4" data-title="Item 3">
                         <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingThree"
-                            title="Ver conteúdo do Accordion">
+                            title="Ver últimos lançamentos">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <div class="container-fluid p-0">
@@ -124,22 +151,33 @@
                                         <div class="d-flex text-start col-custom">
                                             <div class="col-custom-number">
                                                 <span class="data-label">Nº:</span>
-                                                <span class="data-value">70 |</span>
+                                                <span class="data-value">003 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">
+                                                    &#248;3.40 -
+                                                    &oslash;3.50
+                                                    (4x)
+                                                </span>
                                             </div>
                                             <div class="col-custom-tecnic">
-                                                <span class="data-label">Value:</span>
-                                                <span class="data-value"><b>EXEMPLO 3 - PASTA DIGITAL</b></span>
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>SOMETHING TITLE ACCORDION - Example.3</b></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </button>
+                            <!-- Form Button ADD -->
+                            <button class="btn btn-success btn-lg ms-3 accordion-button-addParam" type="submit"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-3-circle"></i>
+                            </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
                             <div class="accordion-body">
-                                <div class="row">
-                                    Exemplo do 3º Accordion.
-                                </div>
+                                Somenthing Accordion #3...
                             </div>
                         </div>
                     </div>
@@ -147,7 +185,7 @@
                     <!-- 4 -->
                     <div class="accordion-item shadow mb-4" data-title="Item 4">
                         <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingFour"
-                            title="Ver conteúdo do Accordion">
+                            title="Ver últimos lançamentos" title="Ver últimos lançamentos">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <div class="container-fluid p-0">
@@ -155,22 +193,32 @@
                                         <div class="d-flex text-start col-custom">
                                             <div class="col-custom-number">
                                                 <span class="data-label">Nº:</span>
-                                                <span class="data-value">71 |</span>
+                                                <span class="data-value">004 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">
+                                                    1.15 - 1.25
+                                                    (2x)
+                                                </span>
                                             </div>
                                             <div class="col-custom-tecnic">
-                                                <span class="data-label">Value:</span>
-                                                <span class="data-value"><b>EXEMPLO 4 - ACCORDION SWIPE</b></span>
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>SOMETHING TITLE ACCORDION - Example.4</b></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </button>
+                            <!-- Form Button ADD -->
+                            <button class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="submit"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-4-circle"></i>
+                            </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
                             <div class="accordion-body">
-                                <div class="row">
-                                    Exemplo do 4º Accordion.
-                                </div>
+                                Somenthing Accordion #4...
                             </div>
                         </div>
                     </div>
@@ -178,7 +226,7 @@
                     <!-- 5 -->
                     <div class="accordion-item shadow mb-4" data-title="Item 5">
                         <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingFive"
-                            title="Ver conteúdo do Accordion">
+                            title="Ver últimos lançamentos">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                 <div class="container-fluid p-0">
@@ -186,29 +234,40 @@
                                         <div class="d-flex text-start col-custom">
                                             <div class="col-custom-number">
                                                 <span class="data-label">Nº:</span>
-                                                <span class="data-value">72 |</span>
+                                                <span class="data-value">005 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">
+                                                    5.20 - 5.60
+                                                    (4x)
+                                                </span>
                                             </div>
                                             <div class="col-custom-tecnic">
-                                                <span class="data-label">Value:</span>
-                                                <span class="data-value"><b>EXEMPLO 5 - OUTRA COISA</b></span>
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>SOMETHING TITLE ACCORDION - Example.5</b></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </button>
+                            <!-- Form Button ADD -->
+                            <button class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="submit"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-5-square-fill"></i>
+                            </button>
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
                             <div class="accordion-body">
-                                <div class="row">
-                                    Exemplo do 5º Accordion.
-                                </div>
+                                Somenthing Accordion #5...
                             </div>
                         </div>
                     </div>
 
                     <!-- 6 -->
                     <div class="accordion-item shadow mb-4" data-title="Item 6">
-                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingSix" title="Ver conteúdo do Accordion"></h2>
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingSix"
+                            title="Ver últimos lançamentos">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                                 <div class="container-fluid p-0">
@@ -216,29 +275,40 @@
                                         <div class="d-flex text-start col-custom">
                                             <div class="col-custom-number">
                                                 <span class="data-label">Nº:</span>
-                                                <span class="data-value">75 |</span>
+                                                <span class="data-value">006 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">
+                                                    &#248;2.48 -
+                                                    &oslash;2.60
+                                                </span>
                                             </div>
                                             <div class="col-custom-tecnic">
-                                                <span class="data-label">Value:</span>
-                                                <span class="data-value"><b>EXEMPLO 6 - QUALQUER COISA</b></span>
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>SOMETHING TITLE ACCORDION - Example.6</b></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </button>
+                            <!-- Form Button ADD -->
+                            <button class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="submit"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-6-square-fill"></i>
+                            </button>
                         </h2>
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix">
                             <div class="accordion-body">
-                                <div class="row">
-                                    Exemplo do 6º Accordion.
-                                </div>
+                                Somenthing Accordion #6...
                             </div>
                         </div>
                     </div>
 
                     <!-- 7 -->
                     <div class="accordion-item shadow mb-4" data-title="Item 7">
-                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingSeven" title="Ver conteúdo do Accordion"></h2>
+                        <h2 class="accordion-header d-flex justify-content-between align-items-center" id="headingSeven"
+                            title="Ver últimos lançamentos" title="Ver últimos lançamentos">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                                 <div class="container-fluid p-0">
@@ -246,22 +316,32 @@
                                         <div class="d-flex text-start col-custom">
                                             <div class="col-custom-number">
                                                 <span class="data-label">Nº:</span>
-                                                <span class="data-value">76 |</span>
+                                                <span class="data-value">007 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">
+                                                    5.80 - 6.20
+                                                    (2x)
+                                                </span>
                                             </div>
                                             <div class="col-custom-tecnic">
-                                                <span class="data-label">Value:</span>
-                                                <span class="data-value"><b>EXEMPLO - SÉTIMO ACCORDION </b></span>
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>SOMETHING TITLE ACCORDION - Example.7</b></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </button>
+                            <!-- Form Button ADD -->
+                            <button class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="submit"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-7-square"></i>
+                            </button>
                         </h2>
                         <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingFour">
                             <div class="accordion-body">
-                                <div class="row">
-                                    Exemplo do 7º Accordion.
-                                </div>
+                                Somenthing Accordion #7...
                             </div>
                         </div>
                     </div>
@@ -277,30 +357,40 @@
                                         <div class="d-flex text-start col-custom">
                                             <div class="col-custom-number">
                                                 <span class="data-label">Nº:</span>
-                                                <span class="data-value">77 |</span>
+                                                <span class="data-value">008 |</span>
+                                            </div>
+                                            <div class="col-custom-carac">
+                                                <span class="data-label"></span>
+                                                <span class="data-value">
+                                                    23.80 - 24.20
+                                                </span>
                                             </div>
                                             <div class="col-custom-tecnic">
-                                                <span class="data-label">Value:</span>
-                                                <span class="data-value"><b>EXEMPLO 8 - OITAVO ACCORDION</b></span>
+                                                <span class="data-label"></span>
+                                                <span class="data-value"><b>SOMETHING TITLE ACCORDION - Example.8</b></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </button>
+                            <!-- Form Button ADD -->
+                            <button class="btn btn-primary btn-lg ms-3 accordion-button-addParam" type="submit"
+                                title="Adicionar Leitura obtida">
+                                <i class="bi bi-8-square"></i>
+                            </button>
                         </h2>
                         <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight">
                             <div class="accordion-body">
-                                <div class="row">
-                                    Exemplo do 8º Accordion.
-                                </div>
+                                Somenthing Accordion #8...
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-custom-btns d-flex align-items-center justify-content-center">
-                <button id="next-page" type="button"
-                    class="btn btn-secondary next-page carousel-button w-100 h-100">&gt;</button>
+                <button id="next-page" type="button" class="btn btn-secondary next-page carousel-button w-100 h-100 hidden">
+                    <i class="bi bi-arrow-bar-right"></i>
+                </button>
             </div>
         </div>
     </section>

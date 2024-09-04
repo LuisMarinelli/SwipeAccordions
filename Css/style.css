@@ -1,3 +1,10 @@
+@import url('style.css');
+.zf-primary-blue{
+    background-color: #0057B7;    
+}
+.zf-primary-cyan{
+    background-color: #00ABE7;
+}
 
 html, body {
     height: auto;
@@ -25,6 +32,21 @@ body.force-under-space{
     display: none;
 }
 
+.header {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
 .footer {
     position: fixed;
     left: 0;
@@ -45,6 +67,17 @@ body.force-under-space{
     border-bottom: 1px solid #F0F2F4;
     color: #475968;
 }
+
+.header-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.header-subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
 /* PERSONAL SEARCH BUTTON */
 .search-container {
     position: relative;
@@ -79,10 +112,10 @@ body.force-under-space{
 
 /* BUTTONS PAGE */
 #next-page{
-    z-index: 1000;
+    z-index: 900;
 }
 #prev-page{
-    z-index: 1000;
+    z-index: 900;
 }
 
 /* ACCORDIONS STYLES */
@@ -108,6 +141,21 @@ body.force-under-space{
     font-size: 1.25rem;
     justify-content: center;
     padding: 0.5rem;
+}
+.accordion-button-addParam {
+    margin-left: 1rem;
+    margin-right: 1.5rem;
+    font-size: 1.8rem;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 1.0rem;
+    margin-bottom: 1.0rem;
+    width: 7.5rem;
+    border-radius: 15px;
+    
+}
+.small-text {
+    font-size: 0.875rem;
 }
 .accordion-item {
     display: block;
@@ -289,7 +337,6 @@ body.force-under-space{
         opacity: 1;
     }
 }
-
 
 .slide-in-right {
     animation: slide-in-right 0.5s ease-out forwards;
